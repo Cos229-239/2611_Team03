@@ -1,0 +1,24 @@
+Moodi App - Procrastination Feature
+
+Team Member: Sheree Peterson
+Project: Moodi - ADHD-Friendly Task Management App
+
+My Contribution:
+
+For our Moodi project, I worked on designing three screens in Figma that focus on helping users who struggle with procrastination and feeling overwhelmed.
+
+Screen 1: Home and Encouragement
+
+I designed a screen that welcomes users and provides encouragement from the Moodi mascot. The goal is to help users feel supported and motivated to begin their tasks.
+
+Screen 2: Choose Your Task
+
+I created a screen where users can choose what they need to work on, including school, work, household responsibilities, and self-care. I wanted the layout to be simple and easy to understand.
+
+Screen 3: Task Progress
+
+I designed a progress screen that helps users see what they have accomplished. I included visual progress indicators and check marks to encourage users to continue working toward their goals.
+
+My Goal:
+
+My goal is to make the procrastination feature easy to use, visually appealing, and helpful for people with ADHD. I also want my screens to flow consistently with the rest of the team’s designs.
