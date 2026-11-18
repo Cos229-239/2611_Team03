@@ -1,8 +1,10 @@
 # Class Project Template
 
 Start here. Keep this README updated with your team name, members, and a short plan.
+
 ## Team Members
         - Dejion Burkes
+        - Antjuan Quick
         - Elias Pena
         - Ashton Holthaus
 Prototype pages:
