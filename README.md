@@ -3,7 +3,7 @@
 Start here. Keep this README updated with your team name, members, and a short plan.
 ## Team Members
         - Dejion Burkes
-
+        - Ashton Holthaus
 Prototype pages:
 
 - `index.html` - roster editor prototype landing page
