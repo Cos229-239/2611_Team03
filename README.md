@@ -1,7 +1,13 @@
 # Class Project Template
 
 Start here. Keep this README updated with your team name, members, and a short plan.
+<<<<<<< Updated upstream
 
+=======
+## Team Members
+        - Dejion Burkes
+        -Antjuan Quick
+>>>>>>> Stashed changes
 Prototype pages:
 
 - `index.html` - roster editor prototype landing page
