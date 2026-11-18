@@ -6,7 +6,7 @@ Start here. Keep this README updated with your team name, members, and a short p
 =======
 ## Team Members
         - Dejion Burkes
-        -Antjuan Quick
+        - Antjuan Quick
 >>>>>>> Stashed changes
 Prototype pages:
 
