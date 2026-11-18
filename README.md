@@ -6,6 +6,7 @@ Start here. Keep this README updated with your team name, members, and a short p
         - Dejion Burkes
         - Antjuan Quick
         - Elias Pena
+        - Ashton Holthaus
 Prototype pages:
 
 - `index.html` - roster editor prototype landing page
