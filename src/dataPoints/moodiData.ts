@@ -25,3 +25,11 @@ export interface Task {
   requiresReview: boolean;        // Does task require review by parent before treat is given
   progress: TaskProgress;      // Current progress of task defined by TaskProgress type
 }
+
+// Data passed to the pet screen so Mochi reacts when treats are earned or fed and count is kept
+export interface PetRewardSync {
+  treatsBalance: number;       // Total treats currently available to feed Mochi
+  happinessLevel: number;      // 0 - 100 score controlling Mochi's mood & animations
+  streakDays: number;          // Consecutive days with completed tasks
+  isStreakActive: boolean;     // Controls whether Mochi stays vibrant or looks sleepy or has muted colors, whatever we end up going with
+}
