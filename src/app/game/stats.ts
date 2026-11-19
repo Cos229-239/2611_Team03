@@ -13,10 +13,11 @@ export type PetStats = {
 };
 
 export type PetEvent =
-  | { type: 'TASK_COMPLETED' }
-  | { type: 'TASK_OVERDUE' }
-  | { type: 'PET_FED' }
-  | { type: 'PET_RESTED' };
+  | { type: 'TASK_COMPLETED'}
+  | { type: 'TASK_OVERDUE'  }
+  | { type: 'PET_FED_FOOD'  }
+  | { type: 'PET_FED_SNACKS'}
+  | { type: 'PET_RESTED'    };
 
 export const STAT_MIN = 0;
 export const STAT_MAX = 100;
@@ -36,7 +37,8 @@ export const STARTING_STATS: PetStats = {
 export const EVENT_EFFECTS: Record<PetEvent['type'], Partial<PetStats>> = {
   TASK_COMPLETED: { happiness: +10, health: +2 },
   TASK_OVERDUE: { happiness: -5, health: -5 },
-  PET_FED: { hunger: +30, happiness: +3 },
+  PET_FED_FOOD: { hunger: +30, happiness: +3 },
+  PET_FED_SNACKS: { hunger: +10, happiness: +1 },
   PET_RESTED: { energy: +40 },
 };
 
