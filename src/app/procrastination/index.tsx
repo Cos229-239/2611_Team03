@@ -15,6 +15,7 @@ return (
 <ImageBackground
 source={require('../../../assets/images/procrastination/overwhelmed.png')}
 style={styles.background}
+resizeMode="cover"
 >
 <ScrollView contentContainerStyle={styles.container}>
 
@@ -60,28 +61,36 @@ Help Me Start
 const styles = StyleSheet.create({
 background: {
 flex: 1,
+width: '100%',
+minHeight: '100%',
+alignItems: 'center',
+justifyContent: 'center',
 },
 container: {
 flexGrow: 1,
 alignItems: 'center',
+alignSelf: 'center',
+width: '100%',
+maxWidth:390,
 padding: 24,
 paddingTop: 65,
 },
 title: {
-fontSize: 28,
+fontSize: 24,
 fontWeight: 'bold',
 color: '#FFFFFF',
 textAlign: 'center',
+marginTop: 20,
 },
 moodi: {
-width: 230,
-height: 230,
-marginTop: 25,
+width: 150, 
+height: 150,
+marginTop: 30,
 },
 bubble: {
 backgroundColor: '#FAF7FF',
 borderRadius: 24,
-padding: 20,
+padding: 18,
 width: '100%',
 marginTop: 20,
 },
@@ -99,17 +108,19 @@ marginTop: 10,
 lineHeight: 25,
 },
 button: {
-backgroundColor: '#F8F2FF',
-borderColor: '#D4AF37',
+backgroundColor: '#6f2dbd',
+borderColor: '#ffd700',
 borderWidth: 2,
-borderRadius: 25,
-padding: 18,
+borderRadius: 18,
+paddingVertical: 16,
+paddingHorizontal: 24,
 width: '100%',
-marginTop: 30,
+marginTop: 16,
+alignItems: 'center',
 },
 buttonText: {
-color: '#45276B',
-fontSize: 20,
+color: '#ffffff',
+fontSize: 18,
 fontWeight: 'bold',
 textAlign: 'center',
 },
