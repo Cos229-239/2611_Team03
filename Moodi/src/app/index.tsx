@@ -1,9 +1,9 @@
+import { Link } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text accessibilityRole="header" style={styles.header}>Moodi</Text>
+      <Text style={styles.header}>✧Moodi✧</Text>
       <Text style={styles.text}>Are you a parent or a child?</Text>
 
       <Image
@@ -12,7 +12,9 @@ export default function Index() {
       />
 
       <Pressable style={({pressed}) => [styles.Button1, pressed && styles.pressed]}>
-        <Text style={styles.ButtonText}>I'm a Parent</Text>
+        <Link href="/focus_mode_starter" style={styles.ButtonText}>
+          <Text style={styles.ButtonText}>I'm a Parent</Text>
+        </Link>
       </Pressable>
 
       <Pressable style={({pressed}) => [styles.Button2, pressed && styles.pressed]}>
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
+    textAlign: "center",
   },
   text: {
     color: "#fff",
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 70,
+    textAlign: "center",
   },
   Button1: {
     backgroundColor: '#411C86',
