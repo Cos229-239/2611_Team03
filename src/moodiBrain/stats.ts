@@ -2,7 +2,7 @@
 // Mochi's stat economy. PURE TypeScript: no React, no Supabase imports, ever.
 //
 // Convention: every stat is 0-100 and HIGHER IS BETTER.
-// That means `hunger` is really a fullness meter (100 = full, 0 = starving).
+// That means `bond` is really a friendship meter (100 = moodi trusts you, 0 = moodi feels neglected).
 // Your team should confirm or change this on Day 1, because the UI meters depend on it.
 
 export type PetStats = {
