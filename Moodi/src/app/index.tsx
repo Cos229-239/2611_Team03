@@ -13,7 +13,7 @@ export default function Index() {
 
       <Pressable style={({pressed}) => [styles.Button1, pressed && styles.pressed]}>
         <Link href="/focus_mode_starter" style={styles.ButtonText}>
-          <Text style={styles.ButtonText}>I'm a Parent</Text>
+          <Text style={styles.ButtonText}>I'm a Adult</Text>
         </Link>
       </Pressable>
 
