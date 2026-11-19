@@ -9,7 +9,7 @@ export type PetStats = {
   health: number;
   happiness: number;
   energy: number;
-  hunger: number; // 100 = full
+  bond: number; // 100 = full
 };
 
 export type PetEvent =
@@ -30,15 +30,15 @@ export const STARTING_STATS: PetStats = {
   health: 80,
   happiness: 70,
   energy: 70,
-  hunger: 70,
+  bond: 10,
 };
 
 // DRAFT NUMBERS. Tune these as a team; they are the whole feel of the game.
 export const EVENT_EFFECTS: Record<PetEvent['type'], Partial<PetStats>> = {
   TASK_COMPLETED: { happiness: +10, health: +2 },
   TASK_OVERDUE: { happiness: -5, health: -5 },
-  PET_FED_FOOD: { hunger: +30, happiness: +3 },
-  PET_FED_SNACKS: { hunger: +10, happiness: +1 },
+  PET_FED_FOOD: { health: +30, happiness: +3 },
+  PET_FED_SNACKS: { energy: +10, happiness: +1 },
   PET_RESTED: { energy: +40 },
 };
 
@@ -53,7 +53,7 @@ export function applyEvent(stats: PetStats, event: PetEvent): PetStats {
     health: clamp(stats.health + (effect.health ?? 0), HEALTH_FLOOR, STAT_MAX),
     happiness: clamp(stats.happiness + (effect.happiness ?? 0), STAT_MIN, STAT_MAX),
     energy: clamp(stats.energy + (effect.energy ?? 0), STAT_MIN, STAT_MAX),
-    hunger: clamp(stats.hunger + (effect.hunger ?? 0), STAT_MIN, STAT_MAX),
+    bond: clamp(stats.bond + (effect.bond ?? 0), STAT_MIN, STAT_MAX),
   };
 
   return next; // a new object; the old state is never mutated
