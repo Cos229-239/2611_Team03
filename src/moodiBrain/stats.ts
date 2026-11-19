@@ -38,7 +38,7 @@ export const EVENT_EFFECTS: Record<PetEvent['type'], Partial<PetStats>> = {
   TASK_COMPLETED: { happiness: +10, health: +2, bond: +1, energy: -3 },
   TASK_OVERDUE: { happiness: -5, health: -5 },
   PET_FED_FOOD: { health: +30, happiness: +3 },
-  PET_FED_SNACKS: { energy: +10, happiness: +1 },
+  PET_FED_SNACKS: { energy: +10, happiness: +8 },
   PET_RESTED: { energy: +40, health: +5, happiness: +2 },
 };
 
