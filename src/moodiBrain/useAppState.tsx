@@ -8,6 +8,12 @@ Task,
 PetRewardSync,
 //
 } from '../dataPoints/moodiData'
+import {
+    PetStats,
+    PetEvent,
+    STARTING_STATS,
+    applyEvent,
+} from './stats';
 
 // Maps each 1-4 effort level to the exact number of treats user will earn
 const EFFORT_TO_TREATS: Record<TaskEffort, number> = {
@@ -25,6 +31,7 @@ interface AppState {
   tasks: Task[];
   selectedDate: string; // 'YYYY-MM-DD' currently highlighted on the calendar
   petSync: PetRewardSync;
+  petStats: PetStats;
 
   // Actions that screens can trigger
   setSelectedDate: (date: string) => void;
@@ -41,5 +48,6 @@ interface AppState {
   }) => void;
   completeTask: (taskId: string) => void;
   approveTask: (taskId: string) => void;
-  feedPet: (treatsToFeed?: number) => void;
+  feedPet: (treatsToFeed?: number, feedType?: 'PET_FED_FOOD' | 'PET_FED_SNACKS') => void;
+  triggerPetEvent: (event: PetEvent) => void;
 }
