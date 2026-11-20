@@ -3,22 +3,22 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>✧Moodi✧</Text>
-      <Text style={styles.text}>Are you a parent or a child?</Text>
+      <Text style={styles.header}>✧Moodi✧</Text> //header text
+      <Text style={styles.text}>Are you a parent or a child?</Text> //subheader text
 
       <Image
-        source={require('../../assets/images/Moodi-mascot.png')}
+        source={require('../../assets/images/Moodi-mascot.png')} //image of moodi
         style={styles.image}
       />
 
       <Pressable style={({pressed}) => [styles.Button1, pressed && styles.pressed]}>
-        <Link href="/focus_mode_starter" style={styles.ButtonText}>
-          <Text style={styles.ButtonText}>I'm a Adult</Text>
+        <Link href="/focus_mode_starter" style={styles.ButtonText}> //link to focus mode starter page
+          <Text style={styles.ButtonText}>I'm a Adult</Text> //Adult button text
         </Link>
       </Pressable>
 
       <Pressable style={({pressed}) => [styles.Button2, pressed && styles.pressed]}>
-        <Text style={styles.ButtonText}>I'm a Child</Text>
+        <Text style={styles.ButtonText}>I'm a Child</Text> //Child button text
       </Pressable>
     </View>
   );

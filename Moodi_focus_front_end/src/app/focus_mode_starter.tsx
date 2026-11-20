@@ -3,21 +3,21 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>✧Moodi✧</Text>
-      <Text style={styles.text}>Enable Focus Mode for Your Child</Text>
+      <Text style={styles.header}>✧Moodi✧</Text>//header text
+      <Text style={styles.text}>Enable Focus Mode for Your Child</Text> //subheader text
 
       <Image
-        source={require('../../assets/images/Moodi-Shield.webp')}
+        source={require('../../assets/images/Moodi-Shield.webp')} //image of moodi
         style={styles.image}
       />
 
         <Text style={styles.expText}>
             Child’s Device{'\n'}
-            Focus Mode is <Text style={styles.off}>OFF</Text>
+            Focus Mode is <Text style={styles.off}>OFF</Text> //status text 
         </Text>
 
       <Pressable style={({pressed}) => [styles.Button1, pressed && styles.pressed]}>
-        <Text style={styles.ButtonText}>Turn On Focus Mode</Text>
+        <Text style={styles.ButtonText}>Turn On Focus Mode</Text> //focus mode start button text
       </Pressable>
     </View>
   );
