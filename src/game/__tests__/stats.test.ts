@@ -1,5 +1,6 @@
 // src/game/__tests__/stats.test.ts
 import { applyEvent, HEALTH_FLOOR, STAT_MAX, STARTING_STATS, PetStats } from '../stats';
+import { describe, test, expect } from '@jest/globals';
 
 describe('applyEvent', () => {
   test('completing a task increases happiness', () => {
