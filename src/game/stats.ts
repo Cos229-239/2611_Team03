@@ -30,7 +30,7 @@ export const STARTING_STATS: PetStats = {
   health: 80,
   happiness: 70,
   energy: 70,
-  bond: 10,
+  bond: 39,
 };
 
 // DRAFT NUMBERS. Tune these as a team; they are the whole feel of the game.

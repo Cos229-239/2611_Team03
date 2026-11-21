@@ -1,5 +1,10 @@
-import { Stack } from "expo-router";
+import { Stack } from 'expo-router';
+import { SpotlightProvider } from '../components/tutorial/SpotlightProvider';
 
 export default function RootLayout() {
-  return <Stack />;
+  return (
+    <SpotlightProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </SpotlightProvider>
+  );
 }

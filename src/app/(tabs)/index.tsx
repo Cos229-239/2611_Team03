@@ -5,7 +5,7 @@
 // replace useMockPet() with it. The only contract between you is the PetStats type.
 
 import { useRef, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams } from 'expo-router';
 import { applyEvent, PetStats, STARTING_STATS } from '../../game/stats';
@@ -15,12 +15,15 @@ import { useSpotlight } from '../../components/tutorial/SpotlightProvider';
 import { OASIS_TUTORIAL } from '../../components/tutorial/tutorialSteps';
 import { markTutorialSeen } from '../../lib/onboarding';
 
+const BACKDROP = require('../../../assets/images/pet-oasis-backdrop.png');
+
 // TEMP: placeholder until the art lands. Swap each for require('../../assets/mochi/happy.png') etc.
 const MOCHI_PLACEHOLDER: Record<MochiMood, string> = {
   happy: '(^ ‿ ^)',
   idle: '(• ‿ •)',
   sad: '(• ︵ •)',
   sleeping: '(- ‿ -) zZ',
+  sick: '(• x •)',
 };
 
 const MOODI_LINES: Record<MochiMood, string> = {
@@ -28,11 +31,12 @@ const MOODI_LINES: Record<MochiMood, string> = {
   idle: 'Ah. There you are.',
   sad: 'Mochi has noticed. So have I.',
   sleeping: 'Mochi is recharging. Try not to need anything.',
+  sick: 'Mochi is not feeling well. Let\'s nurse them back to health.',
 };
 
 function useMockPet() {
   const [stats, setStats] = useState<PetStats>(STARTING_STATS);
-  const feed = () => setStats((s) => applyEvent(s, { type: 'PET_FED' }));
+  const feed = () => setStats((s) => applyEvent(s, { type: 'PET_FED_FOOD' }));
   return { stats, feed };
 }
 
@@ -52,25 +56,35 @@ export default function OasisScreen() {
   };
 
   return (
-    <LinearGradient colors={['#1a0b3d', '#2d1260', '#120726']} style={styles.screen} onLayout={handleLayout}>
-      {/* Top HUD: meters */}
-      <View style={styles.meters}>
-        <View style={styles.meterCol}>
+    <View style={styles.screen} onLayout={handleLayout}>
+      <Image source={BACKDROP} resizeMode="cover" style={StyleSheet.absoluteFill} blurRadius={2.45} />
+      <LinearGradient
+        colors={['rgba(18,7,38,0.65)', 'transparent', 'rgba(18,7,38,0.75)']}
+        style={StyleSheet.absoluteFill}
+        pointerEvents="none"
+      />
+      {/* Top HUD: meters: Health and Happiness */}
+      <View style={styles.meterSlot}>
+        <View style={styles.meterRow}>
           <StatMeter ref={registerTarget('meter-health')} label="HEALTH" value={stats.health} color="#ff7aa8" />
           <StatMeter ref={registerTarget('meter-energy')} label="ENERGY" value={stats.energy} color="#7ad7ff" />
         </View>
-        <View style={styles.meterCol}>
+
+        {/* Center: Mochi */}
+        <View ref={registerTarget('mochi')} collapsable={false} style={styles.mochiWrap}>
+          <View style={styles.mochiGlow} />
+          <Text style={styles.mochiPlaceholder}>{MOCHI_PLACEHOLDER[mood]}</Text>
+          <Text style={styles.moodTag}>{mood.toUpperCase()}</Text>
+        </View>
+
+        {/* Bottom HUD: meters: Energy and Bond */}
+        <View style={styles.meterRow}>
           <StatMeter ref={registerTarget('meter-happiness')} label="HAPPINESS" value={stats.happiness} color="#ffd36e" />
-          <StatMeter ref={registerTarget('meter-hunger')} label="HUNGER" value={stats.hunger} color="#9dff9d" />
+          <StatMeter ref={registerTarget('meter-bond')} label="BOND" value={stats.bond} color="#9dff9d" />
         </View>
       </View>
 
-      {/* Center: Mochi */}
-      <View ref={registerTarget('mochi')} collapsable={false} style={styles.mochiWrap}>
-        <View style={styles.mochiGlow} />
-        <Text style={styles.mochiPlaceholder}>{MOCHI_PLACEHOLDER[mood]}</Text>
-        <Text style={styles.moodTag}>{mood.toUpperCase()}</Text>
-      </View>
+
 
       {/* Moodi commentary */}
       <View style={styles.moodiBubble}>
@@ -84,14 +98,15 @@ export default function OasisScreen() {
           <Text style={styles.actionText}>Feed</Text>
         </Pressable>
       </View>
-    </LinearGradient>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, paddingTop: 64, paddingHorizontal: 20, paddingBottom: 32 },
-  meters: { flexDirection: 'row', gap: 12 },
-  meterCol: { flex: 1, gap: 10 },
+  screen: { flex: 1, paddingTop: 90, paddingHorizontal: 20, paddingBottom: 32 },
+  meterRow: { flexDirection: 'row', gap: 12 },
+  meterSlot: { flex: 1 },
+  bottomRow: { marginBottom: 24 },
   mochiWrap: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   mochiGlow: {
     position: 'absolute',
@@ -102,6 +117,7 @@ const styles = StyleSheet.create({
   },
   mochiPlaceholder: { fontSize: 44, color: '#ffc4dc' },
   moodTag: { marginTop: 12, color: '#c9a7ff', fontSize: 11, letterSpacing: 3, fontWeight: '700' },
+  //padding: { paddingVertical: 200 },
   moodiBubble: {
     padding: 14,
     borderRadius: 18,
