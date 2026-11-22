@@ -7,6 +7,7 @@ import {
   TabListProps,
 } from 'expo-router/ui';
 import { SymbolView } from 'expo-symbols';
+import { usePathname } from 'expo-router';
 import { Pressable, useColorScheme, View, StyleSheet } from 'react-native';
 
 import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
@@ -16,9 +17,12 @@ import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
 
 export default function AppTabs() {
+  const pathname = usePathname();
+  const hideTabs = pathname.startsWith('/procrastination');
   return (
     <Tabs>
       <TabSlot style={{ height: '100%' }} />
+      {!hideTabs && (
       <TabList asChild>
         <CustomTabList>
           <TabTrigger name="home" href="/" asChild>
@@ -39,6 +43,7 @@ export default function AppTabs() {
 <TabButton>Progress</TabButton>
 </TabTrigger></CustomTabList>
       </TabList>
+      )}
     </Tabs>
   );
 }
