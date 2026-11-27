@@ -1,24 +1,23 @@
-import { Link } from "expo-router";
+import { router } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>✧Moodi✧</Text> //header text
-      <Text style={styles.text}>Are you a parent or a child?</Text> //subheader text
+      <Text style={styles.header}>✧Moodi✧</Text> 
+      <Text style={styles.text}>Are you an Adult or a Child?</Text> 
 
       <Image
         source={require('../../assets/images/Moodi-mascot.png')} //image of moodi
         style={styles.image}
       />
 
-      <Pressable style={({pressed}) => [styles.Button1, pressed && styles.pressed]}>
-        <Link href="/focus_mode_starter" style={styles.ButtonText}> //link to focus mode starter page
-          <Text style={styles.ButtonText}>I'm a Adult</Text> //Adult button text
-        </Link>
+      <Pressable
+        onPress={() => router.navigate("/focus_mode_starter")} style={({pressed}) => [styles.Button1, pressed && styles.pressed]}>
+        <Text style={styles.ButtonText}>I'm a Adult</Text>    
       </Pressable>
 
       <Pressable style={({pressed}) => [styles.Button2, pressed && styles.pressed]}>
-        <Text style={styles.ButtonText}>I'm a Child</Text> //Child button text
+        <Text style={styles.ButtonText}>I'm a Child</Text>
       </Pressable>
     </View>
   );
